@@ -11,7 +11,7 @@ import face_recognition
 import os
 from datetime import datetime
 from kivy.graphics.texture import Texture
-# from controller import blink_led
+from controller import blink_led
 
 class PlatformApp(BoxLayout):
     def __init__(self, **kwargs):
@@ -105,12 +105,12 @@ class PlatformApp(BoxLayout):
                             if name in nameList and currentDate in dateList:
                                 print(f"{name} has already been marked for attendance on {currentDate}.")
                                 self.label.text = f"{name} has already been marked for attendance on {currentDate}."
-                                # blink_led(2)
+                                blink_led(2)
                             else:
                                 f.writelines(f'\n{name},{currentDate},{currentTime}')
                                 print(f"{name} marked for attendance on {currentDate}.")
                                 self.label.text = f"{name} marked for attendance on {currentDate}."
-                                # blink_led(1)
+                                blink_led(1)
 
             # Convert the image to texture and update the Kivy Image widget
             buf = cv2.flip(img, 0)
